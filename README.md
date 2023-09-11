@@ -1,43 +1,39 @@
-# Ebay_Price_Tracker
-This script allows users to track products on eBay based on a specific search term and a desired price point.
-Functionality:
+# eBay Price Tracker
 
-User Input: The user provides a search term (e.g., "iPhone 12") and a desired price (e.g., $500).
+The eBay Price Tracker is a Python-based project designed to streamline the process of tracking product prices on eBay. When a product is listed below a specified price threshold, the user is instantly notified, allowing them to grab deals as they appear.
 
-Data Retrieval:
+## Overview:
 
-The script fetches product listings from eBay using the search term provided.
-Using the requests library, it sends a GET request to eBay's search URL.
-The page's HTML is then parsed using BeautifulSoup to extract product information.
-Data Parsing:
+This tool leverages web scraping techniques and a local SQLite database to monitor eBay listings and notify users when there's a match.
 
-The script looks for product listings in the parsed HTML.
-For each product found, it extracts the title, selling price, bid count (if any), and link to the product.
-This data is aggregated into a list of product dictionaries.
-Data Storage:
+### Key Components:
 
-The script employs SQLite to maintain a database (listings.db).
-A table named listings is created if it doesn't already exist. This table has columns for the product title, selling price, and a unique link to ensure no duplicates.
-Products with selling prices below the desired price are inserted into this database.
-Notifications and Outputs:
+- **Web Scraping with BeautifulSoup:** Scans eBay for the desired product listings.
+- **SQLite Database:** Stores product listings to ensure users are notified only once per listing.
+- **Mac Notifications:** Provides a user-friendly notification experience.
+- **CSV Output:** Allows the user to maintain a permanent record of tracked products.
 
-If a new listing (not previously stored in the database) matches the criteria (i.e., selling price below the desired price), details of the product are printed to the console.
-Additionally, the product details are saved in a CSV file named output2.csv.
-The user is notified via a macOS notification about any new listings found.
-Database Interaction:
+## Why This Approach?
 
-On initialization, the script sets up the database (if it doesn't exist) and fetches and prints any listings already stored in it.
-It checks new listings against the database and only adds unique listings (based on the product link).
-Automation Potential:
+1. **BeautifulSoup over API:** While eBay offers an API, web scraping provides more flexibility without the constraints of rate limits or potential API changes.
+2. **SQLite for Local Storage:** SQLite offers a lightweight and serverless database solution, ideal for standalone applications. No setup or connection strings are required.
+3. **Mac Notifications for User Interaction:** Direct OS notifications are user-friendly and immediate, ensuring users don't miss out on deals.
+4. **CSV for Record-keeping:** A universal format for data storage and review. Users can easily import this into other tools or share with others.
 
-Though not inherent in the script, it can be set up to run periodically (e.g., daily) using tools like cron (for macOS/Linux) or Task Scheduler (for Windows) to provide updated listings and notifications.
-Dependencies:
+## Setup:
 
-requests for fetching web pages.
-BeautifulSoup from bs4 for parsing HTML.
-sqlite3 for database operations.
-pandas for CSV data operations.
-subprocess to send macOS notifications.
-Use Case:
-This script is ideal for users who are looking to track product prices on eBay. By setting a desired price, they can be immediately notified of any listings that match their criteria, allowing them to take advantage of deals or price drops.
+### Requirements:
+
+- Python 3.x
+- BeautifulSoup4: For web scraping.
+- Pandas: For data handling and CSV operations.
+- SQLite: As a lightweight relational database.
+- Requests: To make HTTP requests to eBay.
+
+### Installation:
+
+1. **Set Up Python:**
+   Ensure you have Python 3.x installed. You can check with:
+   ```bash
+   python --version
 
