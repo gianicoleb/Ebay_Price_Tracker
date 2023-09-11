@@ -1,5 +1,7 @@
 # eBay Price Tracker
 
+I originally made this project because of my decade long obsession with vintage sweaters. Specifically, it is Coogi brand sweaters that I have fawned over. They generally go for $250-$300, but if you're lucky you can catch a dad or grandpa doing some spring cleaning and snag one for $50. I searched ebay regulared for years with no luck, and found 2 I could affford within a week of using this program
+
 The eBay Price Tracker is a Python-based project designed to streamline the process of tracking product prices on eBay. When a product is listed below a specified price threshold, the user is instantly notified, allowing them to grab deals as they appear.
 
 ## Overview:
